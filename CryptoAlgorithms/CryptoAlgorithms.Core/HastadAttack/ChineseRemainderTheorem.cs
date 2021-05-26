@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HastadAttack
+namespace CryptoAlgorithms.Core.HastadAttack
 {
     /// <summary>
     /// Китайская теорема об остатках

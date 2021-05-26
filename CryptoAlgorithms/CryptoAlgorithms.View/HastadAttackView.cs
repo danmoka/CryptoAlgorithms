@@ -1,13 +1,14 @@
-﻿using HastadAttack;
+﻿using CryptoAlgorithms.Core.HastadAttack;
 using System;
 
-namespace HastadAttackConsoleApp
+namespace CryptoAlgorithms.View
 {
-    class Program
+    public class HastadAttackView
     {
-        private static long[] c = { 8396, 4729, 2992};
-        private static long[] m = { 23449, 21583, 14863 };
-        static void Main(string[] args)
+        private long[] c = { 8396, 4729, 2992 };
+        private long[] m = { 23449, 21583, 14863 };
+
+        public void Run()
         {
             var attackAlg = new HastadAttackAlg
             {
