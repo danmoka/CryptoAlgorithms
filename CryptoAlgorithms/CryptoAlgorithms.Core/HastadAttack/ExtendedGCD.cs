@@ -1,4 +1,4 @@
-﻿namespace HastadAttack
+﻿namespace CryptoAlgorithms.Core.HastadAttack
 {
     /// <summary>
     /// Расширенный алгоритм Евклида
@@ -25,7 +25,7 @@
 
             var d = GCD(b % a, a, out var x1, out var y1);
 
-            x = y1 - (b / a) * x1;
+            x = y1 - b / a * x1;
             y = x1;
 
             return d;

@@ -1,4 +1,4 @@
-using HastadAttack;
+using CryptoAlgorithms.Core.HastadAttack;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HastadAttackTests
