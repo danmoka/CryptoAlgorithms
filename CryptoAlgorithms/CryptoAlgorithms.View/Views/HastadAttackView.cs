@@ -3,7 +3,7 @@ using System;
 
 namespace CryptoAlgorithms.View
 {
-    public class HastadAttackView
+    public class HastadAttackView : IAlgorithmView
     {
         private long[] c = { 8396, 4729, 2992 };
         private long[] m = { 23449, 21583, 14863 };
