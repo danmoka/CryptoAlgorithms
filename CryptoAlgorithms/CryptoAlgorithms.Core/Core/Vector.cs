@@ -21,7 +21,7 @@ namespace CryptoAlgorithms.Core.Core
 
             _values = new double[values.Length];
 
-            for (int i = 0; i < _values.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 _values[i] = values[i];
             }
@@ -36,7 +36,7 @@ namespace CryptoAlgorithms.Core.Core
         {
             get
             {
-                if (index < 0 || index > _values.Length)
+                if (index < 0 || index > Length)
                 {
                     throw new IndexOutOfRangeException();
                 }
@@ -45,7 +45,7 @@ namespace CryptoAlgorithms.Core.Core
             }
             set
             {
-                if (index < 0 || index > _values.Length)
+                if (index < 0 || index > Length)
                 {
                     throw new IndexOutOfRangeException();
                 }
@@ -121,19 +121,19 @@ namespace CryptoAlgorithms.Core.Core
                 throw new ArgumentNullException("vector is null");
             }
 
-            if (_values.Length == 0)
+            if (Length == 0)
             {
                 return 0;
             }
 
-            if (_values.Length != vector.Length)
+            if (Length != vector.Length)
             {
                 throw new ArgumentException($"values length: {_values.Length}, vector length: {vector.Length}");
             }
 
             var dotProduct = 0.0;
 
-            for (int i = 0; i < _values.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 dotProduct += _values[i] * vector[i];
             }
@@ -153,12 +153,12 @@ namespace CryptoAlgorithms.Core.Core
 
             var vector = (Vector) obj;
             
-            if (vector.Length != this.Length)
+            if (vector.Length != Length)
             {
                 return false;
             }
 
-            for (int i = 0; i < this.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 var difference = Math.Abs(this[i] * .00001);
 
@@ -175,14 +175,14 @@ namespace CryptoAlgorithms.Core.Core
         {
             unchecked 
             {
-                if (_values is null || _values.Length == 0)
+                if (_values is null || Length == 0)
                 {
                     return 0;
                 }
                 
                 var hash = 17;
 
-                for (int i = 0; i < _values.Length; i++)
+                for (int i = 0; i < Length; i++)
                 {
                     hash = (23 * hash) ^ (_values[i].GetHashCode());
                 }
@@ -197,11 +197,11 @@ namespace CryptoAlgorithms.Core.Core
         /// <returns>Копия объекта</returns>
         public object Clone()
         {
-            var values = new double[this.Length];
+            var values = new double[Length];
 
-            for (int i = 0; i < this.Length; i++ )
+            for (int i = 0; i < Length; i++ )
             {
-                values[i] = this._values[i];
+                values[i] = _values[i];
             }
 
             return new Vector(values);

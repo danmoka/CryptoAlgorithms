@@ -49,6 +49,17 @@ namespace VectorTests
         }
 
         [TestMethod]
+        public void CloneTest()
+        {
+            double[] values = { 0.1, 0.2, 0.3 };
+            var vector1 = new Vector(values);
+            var vector2 = (Vector) vector1.Clone();
+
+            Assert.AreEqual(vector1, vector2);
+            Assert.IsTrue(vector1.GetHashCode() == vector2.GetHashCode());
+        }
+
+        [TestMethod]
         public void SumTest()
         {
             double[] expectedValues = { 1.0, 5.0, 20.0 };
@@ -90,6 +101,18 @@ namespace VectorTests
             var dotProduct = vector1.DotProduct(vector2);
 
             Assert.AreEqual(expectedResult, dotProduct);
+        }
+
+        [TestMethod]
+        public void GetValueTest()
+        {
+            var expectedValue = 2.0;
+
+            double[] values = { 0.0, 2.0, 3.0 };
+            var vector = new Vector(values);
+            var value = vector[1];
+
+            Assert.AreEqual(expectedValue, value);
         }
     }
 }
