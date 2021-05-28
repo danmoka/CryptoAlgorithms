@@ -3,6 +3,9 @@ using System.Text;
 
 namespace CryptoAlgorithms.Core.Core
 {
+    /// <summary>
+    /// Вектор
+    /// </summary>
     public class Vector : ICloneable
     {
         private double[] _values;
@@ -106,6 +109,11 @@ namespace CryptoAlgorithms.Core.Core
             return vector;
         }
 
+        /// <summary>
+        /// Скалярное произведение
+        /// </summary>
+        /// <param name="vector">Вектор</param>
+        /// <returns>Скалярное произведение двух векторов</returns>
         public double DotProduct(Vector vector)
         {
             if (vector == null)
@@ -167,14 +175,26 @@ namespace CryptoAlgorithms.Core.Core
         {
             unchecked 
             {
-                // https://stackoverflow.com/a/263416/4340086
-                var hash = (int) 2166136261;
-                hash = (16777619 * hash) ^ (_values?.GetHashCode() ?? 0);
+                if (_values is null || _values.Length == 0)
+                {
+                    return 0;
+                }
+                
+                var hash = 17;
+
+                for (int i = 0; i < _values.Length; i++)
+                {
+                    hash = (23 * hash) ^ (_values[i].GetHashCode());
+                }
                 
                 return hash;
             }
         }
 
+        /// <summary>
+        /// Предоставляет копию объекта
+        /// </summary>
+        /// <returns>Копия объекта</returns>
         public object Clone()
         {
             var values = new double[this.Length];
