@@ -114,5 +114,18 @@ namespace VectorTests
 
             Assert.AreEqual(expectedValue, value);
         }
+
+        [TestMethod]
+        public void MultiplicationTest()
+        {
+            double[] expectedValues = { 3.0, 6.0, -9.0 };
+            var expectedVector = new Vector(expectedValues);
+
+            double[] values = { 1.0, 2.0, -3.0 };
+            var vector = new Vector(values);
+            vector = vector * 3.0;
+
+            Assert.AreEqual(expectedVector, vector);
+        }
     }
 }

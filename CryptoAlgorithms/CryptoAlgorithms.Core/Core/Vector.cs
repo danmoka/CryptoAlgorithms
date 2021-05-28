@@ -109,6 +109,28 @@ namespace CryptoAlgorithms.Core.Core
             return vector;
         }
 
+        public static Vector operator *(double value, Vector vector)
+        {
+            if (vector == null)
+            {
+                throw new ArgumentNullException("vector is null");
+            }
+
+            var result = new Vector(vector.Length);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = vector[i] * value;
+            }
+
+            return result;
+        }
+
+        public static Vector operator *(Vector vector, double value)
+        {
+            return value * vector;
+        }
+
         /// <summary>
         /// Скалярное произведение
         /// </summary>
