@@ -3,7 +3,7 @@ using CryptoAlgorithms.Core.LLL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LLLTests
+namespace CryptoAlgorithms.Tests
 {
     [TestClass]
     public class LLLTest

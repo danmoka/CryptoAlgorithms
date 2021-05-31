@@ -1,7 +1,7 @@
 using CryptoAlgorithms.Core.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace VectorTests
+namespace CryptoAlgorithms.Tests
 {
     [TestClass]
     public class VectorTest

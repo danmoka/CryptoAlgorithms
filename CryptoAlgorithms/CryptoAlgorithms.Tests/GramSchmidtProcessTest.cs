@@ -2,7 +2,7 @@ using CryptoAlgorithms.Core.Core;
 using CryptoAlgorithms.Core.GramSchmidtProcess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CryptoAlgorithms.Tests.GramSchmidtProcessTests
+namespace CryptoAlgorithms.Tests
 {
     [TestClass]
     public class GramSchmidtProcessTest
