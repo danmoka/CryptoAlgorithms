@@ -131,6 +131,26 @@ namespace CryptoAlgorithms.Core.Core
             return value * vector;
         }
 
+        public static Vector operator *(Vector vector, Matrix matrix)
+        {
+            var length = vector.Length;
+            var rowsCount = matrix.RowNumber;
+            var columnsCount = matrix.ColumnNumber;
+
+            if (length != rowsCount)
+                throw new InvalidOperationException("The length of the vector must equal to count of rows of the matrix");
+
+            var result = new Vector(columnsCount);
+
+            for (int i = 0; i < columnsCount; i++)
+            {
+                for (int j = 0; j < length; j++)
+                    result[i] += vector[j] * matrix[j, i];
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Скалярное произведение
         /// </summary>
@@ -164,7 +184,15 @@ namespace CryptoAlgorithms.Core.Core
 
         }
 
-        // MatMul
+        public Vector RoundInt()
+        {
+            var result = new Vector(Length);
+
+            for (int i = 0; i < Length; i++)
+                result[i] = Math.Round(this[i]);
+
+            return result;
+        }
 
         public override bool Equals(object obj)
         {            

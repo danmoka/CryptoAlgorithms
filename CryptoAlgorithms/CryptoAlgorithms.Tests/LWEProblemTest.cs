@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace CryptoAlgorithms.Tests
 {
     [TestClass]
-    public class LWEProblemTests
+    public class LWEProblemTest
     {
         [TestMethod]
         public void RegevCryptosystem_EncryptDecrypt()
