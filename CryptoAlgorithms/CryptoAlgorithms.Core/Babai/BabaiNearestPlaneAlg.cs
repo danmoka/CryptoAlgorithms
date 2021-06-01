@@ -18,6 +18,21 @@ namespace CryptoAlgorithms.Core.Babai
         /// <returns>Ближайшую точку с точностью до экспоненциального множителя</returns>
         public static Vector GetNearest(Matrix basis, Vector x)
         {
+            if (basis is null)
+            {
+                throw new ArgumentNullException("basis is null");
+            }
+
+            if (x is null)
+            {
+                throw new ArgumentNullException("x is null");
+            }
+
+            if (basis.RowNumber != x.Length)
+            {
+                throw new ArgumentException($"number of basis vectors is ${basis.RowNumber}, the point length is ${x.Length}");
+            }
+
             var lllBasis = LLLAlg.Build(basis);
             GramSchmidtProcessAlg.Solve(lllBasis, out var coefficients, out var orthogonalMatrix);
 
