@@ -1,7 +1,7 @@
 using CryptoAlgorithms.Core.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MatrixTests
+namespace CryptoAlgorithms.Tests
 {
     [TestClass]
     public class MatrixTest

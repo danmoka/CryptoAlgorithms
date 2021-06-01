@@ -1,7 +1,7 @@
 using CryptoAlgorithms.Core.HastadAttack;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HastadAttackTests
+namespace CryptoAlgorithms.Tests
 {
     [TestClass]
     public class HastadAttackTest
