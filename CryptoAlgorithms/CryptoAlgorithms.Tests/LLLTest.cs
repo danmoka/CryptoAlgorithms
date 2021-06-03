@@ -18,7 +18,7 @@ namespace CryptoAlgorithms.Tests
             };
             var basis = new Matrix(values);
 
-            Assert.ThrowsException<Exception>(() => LLLAlg.Build(basis));
+            Assert.ThrowsException<ArgumentException>(() => LLLAlg.Build(basis));
         }
 
         [TestMethod]

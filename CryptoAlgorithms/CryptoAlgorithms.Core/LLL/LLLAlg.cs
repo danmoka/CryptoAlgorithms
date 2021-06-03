@@ -25,7 +25,7 @@ namespace CryptoAlgorithms.Core.LLL
             // построение ортогонального базиса (+ матрицы коэффициентов)
             GramSchmidtProcessAlg.Solve(basis, out var coefficients, out var orthogonalMatrix);
 
-            // для всех векторов базиса, начиная со 2-го
+            // для всех векторов базиса, начиная со 1-го
             while (k < basis.RowNumber)
             {
                 // сокращение
@@ -39,13 +39,6 @@ namespace CryptoAlgorithms.Core.LLL
                 }
 
                 var currentVectorDotProduct = orthogonalMatrix[k].DotProduct(orthogonalMatrix[k]);
-
-                // если {bi} не является базисом
-                if (currentVectorDotProduct == 0.0)
-                {
-                    throw new Exception("{bi} is not a basis");
-                }
-
                 var previousVectorDotProduct = orthogonalMatrix[k - 1].DotProduct(orthogonalMatrix[k - 1]);
 
                 if ((0.75 - Math.Pow(coefficients[k, k - 1], 2)) * previousVectorDotProduct > currentVectorDotProduct)

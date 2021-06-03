@@ -1,9 +1,6 @@
 ﻿using CryptoAlgorithms.Core.Babai;
 using CryptoAlgorithms.Core.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CryptoAlgorithms.Tests
 {
