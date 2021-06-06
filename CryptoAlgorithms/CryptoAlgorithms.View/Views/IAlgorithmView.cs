@@ -2,6 +2,7 @@
 {
     public interface IAlgorithmView
     {
+        string Name { get; }
         void Run();
     }
 }

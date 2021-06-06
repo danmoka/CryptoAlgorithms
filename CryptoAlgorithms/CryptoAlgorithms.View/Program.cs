@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CryptoAlgorithms.View
 {
-    class Program
+    public class Program
     {
         private static Dictionary<int, IAlgorithmView> _views;
 
@@ -23,7 +23,7 @@ namespace CryptoAlgorithms.View
                 Console.WriteLine("Выберите алгоритм. Введите \"exit\" для выхода.");
 
                 foreach (var kvp in _views)
-                    Console.WriteLine($"{kvp.Key}. {kvp.Value.GetType().Name.Replace("View", "")}");
+                    Console.WriteLine($"{kvp.Key}. {kvp.Value.Name}");
 
                 Console.Write("Ответ: ");
                 input = Console.ReadLine();
@@ -31,7 +31,20 @@ namespace CryptoAlgorithms.View
                 Console.WriteLine("\n");
 
                 if (_views.ContainsKey(algorithmNumber))
-                    _views[algorithmNumber].Run();
+                {
+                    Console.Clear();
+
+                    try
+                    {
+                        _views[algorithmNumber].Run();
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Ошибка!\n\n");
+                        Run();
+                    }
+                }
             }
 
             Console.WriteLine();
@@ -41,8 +54,11 @@ namespace CryptoAlgorithms.View
         {
             _views = new Dictionary<int, IAlgorithmView>
             {
-                { 1, new HastadAttackView() },
-                { 2, new LWEProblemView() }
+                { 1, new LLLView() },
+                { 2, new BabaiNearestView() },
+                { 3, new HastadAttackView() },
+                { 4, new GGHView() },
+                { 5, new LWEProblemView() },
             };
         }
     }
