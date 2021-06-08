@@ -10,7 +10,7 @@ namespace CryptoAlgorithms.Tests
         public void RegevCryptosystem_EncryptDecrypt()
         {
             var n = 10;
-            var q = 145;
+            var q = 157;
             var regev = new RegevCryptosystem(n, q);
 
             var message = "Hello, world!";
