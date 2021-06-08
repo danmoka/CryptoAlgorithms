@@ -46,11 +46,6 @@ namespace CryptoAlgorithms.Core.LWE_Problem
         /// <summary>
         /// Инициализирует экземпляр криптосистемы
         /// </summary>
-        /// <remarks>
-        /// N - размерность
-        /// Q - модуль (N^2 < Q < 2N^2)
-        /// M - число уравнений
-        /// </remarks>
         /// <param name="n">Параметр надежности</param>
         /// <param name="q">Модуль</param>
         public RegevCryptosystem(int n, int q)
