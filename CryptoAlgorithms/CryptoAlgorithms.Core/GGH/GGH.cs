@@ -1,4 +1,5 @@
 ﻿using CryptoAlgorithms.Core.Core;
+using System;
 
 namespace CryptoAlgorithms.Core.GGH
 {
@@ -33,7 +34,7 @@ namespace CryptoAlgorithms.Core.GGH
                 var A = Matrix.Random(-5, 5, (dimension, dimension));
                 var det = A.Determinant();
 
-                if (det == 1.0)
+                if (Math.Abs(det) == 1.0)
                 {
                     matrix *= A;
                     k--;
@@ -53,7 +54,7 @@ namespace CryptoAlgorithms.Core.GGH
         /// <returns>Зашифрованное сообщение</returns>
         public Vector Encrypt(Vector message, Matrix publicKey, Vector error)
         {
-            return message * publicKey + error;
+            return (message * publicKey + error).RoundInt();
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace CryptoAlgorithms.Core.GGH
 
             var result = U * publicKey.Inverse();
 
-            return result;
+            return result.RoundInt();
         }
     }
 }
