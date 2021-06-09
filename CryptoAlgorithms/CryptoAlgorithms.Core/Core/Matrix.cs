@@ -225,10 +225,7 @@ namespace CryptoAlgorithms.Core.Core
             double[,] lum = MatrixDecompose(out int[] perm, out int toggle);
 
             if (lum == null)
-            {
-                Console.WriteLine("Unable to compute MatrixDeterminant");
                 return 0;
-            }
 
             double result = toggle;
 

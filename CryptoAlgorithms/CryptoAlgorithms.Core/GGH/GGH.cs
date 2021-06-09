@@ -8,6 +8,9 @@ namespace CryptoAlgorithms.Core.GGH
     /// </summary>
     public class GGH
     {
+        public Matrix PrivateKey { get; set; }
+        public Matrix PublicKey { get; set; }
+
         /// <summary>
         /// Генерация открытого ключа: унимодулярная матрица * базис решетки
         /// </summary>
@@ -15,8 +18,12 @@ namespace CryptoAlgorithms.Core.GGH
         /// <returns>Открытый ключ</returns>
         public Matrix GeneratePublicKey(Matrix privateKey)
         {
+            PrivateKey = privateKey;
+
             var unimodular = GenerateUnimodularMatrix(privateKey.RowNumber);
-            return unimodular * privateKey;
+            PublicKey = unimodular * privateKey;
+
+            return PublicKey;
         }
 
         /// <summary>

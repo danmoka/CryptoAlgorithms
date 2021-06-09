@@ -7,9 +7,11 @@ namespace CryptoAlgorithms.View.Views
     {
         private RegevCryptosystem _regev;
 
+        public string Name => "LWE-Problem (Криптосистема Регева)";
+
         public void Run()
         {
-            Console.WriteLine("\nКриптосистема Регева");
+            Console.WriteLine($"\t{Name}");
 
             InputParams();
             PrintParams();
